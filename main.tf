@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "one" {
-  count                  = 4
+  count                  = 3
   ami                    = "ami-0b6d9d3d33ba97d99"
   instance_type          = "c7i-flex.large"
   key_name               = "junks"
@@ -14,5 +14,12 @@ resource "aws_instance" "one" {
 }
 
 variable "instance_names" {
-  default = ["jenkins", "tomcat-1", "tomcat-2", "Monitoring server"]
+  default = ["jenkins", "tomcat-1", "Monitoring server"]
+}
+
+resource "aws_s3_bucket" "one" {
+  bucket = "my-project-bucket-123456789"
+  versioning {
+    enabled = true
+  }
 }
