@@ -7,7 +7,7 @@ resource "aws_instance" "one" {
   ami                    = "ami-0b6d9d3d33ba97d99"
   instance_type          = "c7i-flex.large"
   key_name               = "junks"
-  vpc_security_group_ids = ["sg-0a1fb8aa0587d50af"]
+  vpc_security_group_ids = ["sg-018e599ee2eb30e61"]
   tags = {
     Name = var.instance_names[count.index]
   }
@@ -18,7 +18,7 @@ variable "instance_names" {
 }
 
 resource "aws_s3_bucket" "one" {
-  bucket = "my-project-bucket-123456789"
+  bucket = "my-project-artifact-0009"
   versioning {
     enabled = true
   }
